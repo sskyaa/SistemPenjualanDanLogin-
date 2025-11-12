@@ -20,3 +20,17 @@ for ($i = 0; $i < $jumlah_produk; $i++) {
     $index_harga = array_search($beli[$i], ["Tas Ransel", "Sepatu", "Seragam", "Hijab Segi Empat", "Dasi"]);
     $total[$i] = $harga_barang[$index_harga] * $jumlah[$i]; // total per barang
 }
+
+$no = 1;
+foreach ($beli as $i => $barang) {
+    $harga = $total[$i] / $jumlah[$i];
+    printf("%-3s %-22s %-6s Rp %-10s Rp %-10s\n",
+        $no,
+        $barang,
+        $jumlah[$i],
+        number_format($harga, 0, ',', '.'),
+        number_format($total[$i], 0, ',', '.')
+    );
+    $grandtotal += $total[$i];
+    $no++;
+}
