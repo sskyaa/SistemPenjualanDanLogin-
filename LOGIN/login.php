@@ -34,6 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="container">
         <h2>FORM LOGIN</h2>
+
+        <?php if (!empty($error)): ?>
+    <p class="error"><?= htmlspecialchars($error) ?></p>
+<?php endif; ?>
         <form method="post">
             <label for="username">👤Username:</label>
             <input type="text" id="username" name="username" required>

@@ -140,6 +140,30 @@ button[type="reset"]:hover {
   color: #fff;
   transform: translateY(-2px);
 }
+.error {
+  color: #f5f1f1;
+  background-color: rgba(214, 81, 81, 0.87);
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 13px;
+  font-weight: 500;
+  animation: shake 0.3s ease;
+  text-align: center;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
 
 /* Animasi form muncul */
 @keyframes fadeInUp {
@@ -151,4 +175,47 @@ button[type="reset"]:hover {
     opacity: 1;
     transform: translateY(0);
   }
+}
+/* --- DASHBOARD STYLE --- */
+.dashboard-container {
+  background: rgba(47, 60, 82, 0.35);
+  backdrop-filter: blur(14px);
+  padding: 40px 50px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  width: 360px;
+  animation: fadeInUp 0.9s ease forwards;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.dashboard-container h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  text-shadow: 0 0 8px rgba(150, 179, 212, 0.5);
+}
+
+.dashboard-container p {
+  font-size: 14px;
+  margin-bottom: 25px;
+  color: #e0e0e0;
+}
+
+.dashboard-container a {
+  display: inline-block;
+  text-decoration: none;
+  background: linear-gradient(135deg, #415a77, #1b263b);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(65, 90, 119, 0.5);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.dashboard-container a:hover {
+  background: linear-gradient(135deg, #9b4a3f, #581408);
+  transform: translateY(-2px);
 }
