@@ -1,5 +1,4 @@
 <?php
-echo "<h2> === POLGAN MART === </h2>";
 
 $nama_barang   = ["Tas Ransel", "Sepatu", "Seragam", "Hijab Segi Empat", "Dasi"];
 $harga_barang  = [120000, 200000, 400000, 30000, 10000];
@@ -19,18 +18,44 @@ for ($i = 0; $i < $jumlah_produk; $i++) {
     $jumlah[$i] = rand(1, 5);           // jumlah barang acak
     $index_harga = array_search($beli[$i], ["Tas Ransel", "Sepatu", "Seragam", "Hijab Segi Empat", "Dasi"]);
     $total[$i] = $harga_barang[$index_harga] * $jumlah[$i]; // total per barang
-}
-
-$no = 1;
-foreach ($beli as $i => $barang) {
-    $harga = $total[$i] / $jumlah[$i];
-    printf("%-3s %-22s %-6s Rp %-10s Rp %-10s\n",
-        $no,
-        $barang,
-        $jumlah[$i],
-        number_format($harga, 0, ',', '.'),
-        number_format($total[$i], 0, ',', '.')
-    );
     $grandtotal += $total[$i];
-    $no++;
 }
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>POLGAN MART</title>
+    <!-- Taruh link CSS di sini, di dalam <head> -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h2>🛍 POLGAN MART 🛍</h2>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Barang</th>
+            <th>Jumlah</th>
+            <th>Harga</th>
+            <th>Total</th>
+        </tr>
+        <?php
+        $no = 1;
+        foreach ($beli as $i => $barang) {
+            $harga = $total[$i] / $jumlah[$i];
+            echo "<tr>
+                    <td>$no</td>
+                    <td>$barang</td>
+                    <td>$jumlah[$i]</td>
+                    <td>Rp ".number_format($harga,0,',','.')."</td>
+                    <td>Rp ".number_format($total[$i],0,',','.')."</td>
+                  </tr>";
+            $no++;
+        }
+        ?>
+    </table>
+    <div class="total">TOTAL : Rp <?php echo number_format($grandtotal,0,',','.'); ?></div>
+</div>
+</body>
+</html>

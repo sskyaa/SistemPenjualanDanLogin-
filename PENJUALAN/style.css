@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #96b3d4, #273652, #1a3450);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Efek cahaya lembut */
+body::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 70%
+  );
+  animation: moveLight 8s ease-in-out infinite alternate;
+}
+
+@keyframes moveLight {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(300px, 300px);
+  }
+}
+
+/* Kotak struk belanja (glass effect) */
+.container {
+  background: rgba(47, 60, 82, 0.35);
+  backdrop-filter: blur(14px);
+  padding: 45px 55px;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  width: 360px;
+  animation: fadeInUp 0.9s ease forwards;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+/* Garis dekorasi di atas kotak */
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 4px;
+  background: linear-gradient(to right, #96b3d4, #415a77);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* Judul */
+.container h2 {
+  margin-bottom: 25px;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 22px;
+  text-shadow: 0 0 8px rgba(150, 179, 212, 0.5);
+}
+
+/* Tabel struk belanja */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+  color: #eef3fa;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  font-weight: 600;
+}
+
+td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Total belanja */
+.total {
+  text-align: right;
+  font-weight: 600;
+  margin-top: 12px;
+  color: #ffb86c;
+}
+
+/* Animasi muncul */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tombol kembali / dashboard */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 15px;
+}
+
+.button-group .btn {
+  display: inline-block;
+  text-decoration: none;
+  background: linear-gradient(135deg, #415a77, #1b263b);
+  color: #ffffff;
+  padding: 10px 26px;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 14px rgba(65, 90, 119, 0.4);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.button-group .btn:hover {
+  background: linear-gradient(135deg, #577a9f, #162433);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(87, 121, 168, 0.5);
+}
