@@ -142,3 +142,15 @@ td {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(87, 121, 168, 0.5);
 }
+
+.total {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #ffb86c;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}

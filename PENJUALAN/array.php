@@ -20,6 +20,19 @@ for ($i = 0; $i < $jumlah_produk; $i++) {
     $total[$i] = $harga_barang[$index_harga] * $jumlah[$i]; // total per barang
     $grandtotal += $total[$i];
 }
+
+
+// Hitung diskon
+if ($grandtotal <= 50000) {
+    $persen_diskon = 5;
+} elseif ($grandtotal <= 100000) {
+    $persen_diskon = 10;
+} else {
+    $persen_diskon = 20;
+}
+
+$diskon = ($persen_diskon / 100) * $grandtotal;
+$grandtotal_akhir = $grandtotal - $diskon;
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,7 +68,16 @@ for ($i = 0; $i < $jumlah_produk; $i++) {
         }
         ?>
     </table>
-    <div class="total">TOTAL : Rp <?php echo number_format($grandtotal,0,',','.'); ?></div>
+    <div class="total">
+    <div class="total-row">
+        <span>Subtotal:</span>
+        <span>Rp <?php echo number_format($grandtotal,0,',','.'); ?></span>
+    </div>
+    <div class="total-row">
+        <span>Diskon (<?php echo $persen_diskon; ?>%):</span>
+        <span>-Rp <?php echo number_format($diskon,0,',','.'); ?></span>
+    </div>
+</div>
 </div>
 </body>
 </html>
