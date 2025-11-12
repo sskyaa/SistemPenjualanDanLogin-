@@ -77,6 +77,10 @@ $grandtotal_akhir = $grandtotal - $diskon;
         <span>Diskon (<?php echo $persen_diskon; ?>%):</span>
         <span>-Rp <?php echo number_format($diskon,0,',','.'); ?></span>
     </div>
+    <div class="total-row">
+        <span>Total Bayar:</span>
+        <span>Rp <?php echo number_format($grandtotal_akhir,0,',','.'); ?></span>
+    </div>
 </div>
 </div>
 </body>
