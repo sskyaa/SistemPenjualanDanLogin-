@@ -16,10 +16,18 @@ if (!isset($_SESSION['username'])) {
 <body>
 
     <div class="dashboard-container">
-    <h2>Selamat datang, <?php echo $_SESSION['username']; ?>!</h2>
-    <p>Role: <?php echo $_SESSION['role']; ?></p>
-    <a href="logout.php">Logout</a>
-</div>
+        <?php
+        // Menampilkan sambutan dengan echo
+        echo "<h2>Selamat datang, " . htmlspecialchars($_SESSION['username']) . "!</h2>";
+        ?>
+
+        <p>Role: <?php echo htmlspecialchars($_SESSION['role']); ?></p>
+
+        <div class="button-group">
+            <a href="../penjualan/array.php" class="btn">➡️ Masuk ke Halaman Penjualan</a>
+            <a href="logout.php" class="btn logout">🚪 Logout</a>
+        </div>
+    </div>
 
 </body>
 </html>
