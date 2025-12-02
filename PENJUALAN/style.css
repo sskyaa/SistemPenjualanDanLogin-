@@ -1,17 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
+/* ======= BACKGROUND ======= */
 body {
   font-family: "Poppins", sans-serif;
   background: linear-gradient(135deg, #96b3d4, #273652, #1a3450);
+  margin: 0;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  overflow: hidden;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* Efek cahaya lembut */
+/* Ambient Light */
 body::before {
   content: "";
   position: absolute;
@@ -36,75 +39,273 @@ body::before {
   }
 }
 
-/* Kotak struk belanja (glass effect) */
-.container {
-  background: rgba(47, 60, 82, 0.35);
-  backdrop-filter: blur(14px);
-  padding: 45px 55px;
-  border-radius: 20px;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
-  text-align: center;
-  width: 360px;
-  animation: fadeInUp 0.9s ease forwards;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-}
-
-/* Garis dekorasi di atas kotak */
-.container::before {
-  content: "";
-  position: absolute;
+/* ======= HEADER ======= */
+.header-penjualan {
+  width: 100%;
+  background: rgba(40, 55, 80, 0.55);
+  backdrop-filter: blur(12px);
+  padding: 18px 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #e9eef6;
+  position: fixed;
   top: 0;
-  left: 50%;
-  width: 50%;
-  height: 4px;
-  background: linear-gradient(to right, #96b3d4, #415a77);
-  transform: translateX(-50%);
-  border-radius: 2px;
+  left: 0;
+  z-index: 999;
+  gap: 18px;
 }
 
-/* Judul */
-.container h2 {
+.header-penjualan .right {
+  margin-right: 40px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #96b3d4, #415a77);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1b263b;
+  font-weight: 700;
+  font-size: 19px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  margin-left: -10px;
+}
+
+.title h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #f7faff;
+  text-shadow: 0 0 6px rgba(150, 179, 212, 0.5);
+}
+
+.title span {
+  font-size: 12px;
+  color: #cfd8e5;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, red, rgb(165, 5, 5));
+  padding: 8px 18px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, rgb(214, 26, 26), rgb(165, 5, 5));
+  box-shadow: 0 0 10px rgba(150, 179, 212, 0.4);
+}
+
+/* ======= CONTAINER ======= */
+.container {
+  background: rgba(47, 60, 82, 0.4);
+  backdrop-filter: blur(12px);
+  width: 900px;
+  border-radius: 18px;
+  color: #eaf2ff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 0.7s ease forwards;
+  margin-top: 140px;
+  padding: 40px 50px;
+}
+
+h2 {
+  text-align: center;
   margin-bottom: 25px;
   color: #ffffff;
   font-weight: 600;
-  letter-spacing: 1px;
-  font-size: 22px;
   text-shadow: 0 0 8px rgba(150, 179, 212, 0.5);
 }
 
-/* Tabel struk belanja */
+/* ======= FORM ======= */
+.form-box {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 18px 25px;
+  margin-bottom: 35px;
+}
+
+.form-box select {
+  width: 200px;
+}
+
+label {
+  font-size: 14px;
+  color: #dfe7f5;
+}
+
+input[type="text"],
+input[type="number"],
+select[name="kode"] {
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.9);
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+  border-color: #6ba3d6;
+  box-shadow: 0 0 12px rgba(107, 163, 214, 0.5);
+}
+
+.btn {
+  background: linear-gradient(135deg, #415a77, #1b263b);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #577a9f, #162433);
+  transform: translateY(-2px);
+}
+
+.button-group {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.save {
+  background: #0b2447 !important;
+}
+
+.cancel {
+  background: #b30000 !important;
+}
+
+.button-group .btn:hover {
+  transform: scale(1.05);
+}
+
+/* ======= TABLE ======= */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 15px;
-  color: #eef3fa;
+  margin-top: 10px;
+  table-layout: fixed;
 }
 
-th,
-td {
-  padding: 8px;
+table th,
+table td {
   text-align: left;
 }
 
-th {
-  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-  font-weight: 600;
-}
-
-td {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Total belanja */
-.total {
+/* Harga & Total */
+table td:nth-child(3),
+table th:nth-child(3),
+table td:nth-child(5),
+table th:nth-child(5) {
   text-align: right;
-  font-weight: 600;
-  margin-top: 12px;
-  color: #ffb86c;
+  padding-right: 15px;
 }
 
-/* Animasi muncul */
+/* Jumlah tengah */
+table td:nth-child(4),
+table th:nth-child(4) {
+  text-align: center;
+}
+
+/* Kolom Width */
+table td:nth-child(1),
+table th:nth-child(1) {
+  width: 15%;
+}
+table td:nth-child(2),
+table th:nth-child(2) {
+  width: 30%;
+}
+table td:nth-child(3),
+table th:nth-child(3) {
+  width: 20%;
+}
+table td:nth-child(4),
+table th:nth-child(4) {
+  width: 15%;
+}
+table td:nth-child(5),
+table th:nth-child(5) {
+  width: 20%;
+}
+
+table tr:hover td {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Baris "Belum ada barang" */
+table tr td[colspan="5"] {
+  text-align: center !important;
+  font-weight: 600;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+}
+
+/* ======= TOTAL BOX ======= */
+.total-box {
+  margin-top: 25px;
+  padding: 20px;
+  background: rgba(65, 90, 119, 0.35);
+  border-left: 4px solid #96b3d4;
+  border-radius: 12px;
+  font-size: 15px;
+  color: #e9eef6;
+}
+
+.total-box p {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 16px;
+}
+
+/* CLEAR BUTTON */
+.btn-clear {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #c95e56, #761f18);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(201, 94, 86, 0.4);
+  transition: 0.3s;
+  float: right;
+}
+
+.btn-clear:hover {
+  background: linear-gradient(135deg, #d46f66, #8c241c);
+  transform: translateY(-2px);
+}
+
+/* ANIMASI */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -116,41 +317,6 @@ td {
   }
 }
 
-/* Tombol kembali / dashboard */
-.button-group {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 15px;
-}
-
-.button-group .btn {
-  display: inline-block;
-  text-decoration: none;
-  background: linear-gradient(135deg, #415a77, #1b263b);
-  color: #ffffff;
-  padding: 10px 26px;
-  border-radius: 10px;
-  transition: 0.3s ease;
-  box-shadow: 0 4px 14px rgba(65, 90, 119, 0.4);
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.button-group .btn:hover {
-  background: linear-gradient(135deg, #577a9f, #162433);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(87, 121, 168, 0.5);
-}
-
-.total {
-  margin-top: 15px;
-  font-weight: 600;
-  color: #ffb86c;
-}
-
-.total-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 6px;
+select:invalid {
+  color: #727981 !important;
 }

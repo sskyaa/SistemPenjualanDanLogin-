@@ -3,7 +3,7 @@ session_start();
 
 // Cek apakah user sudah login
 if (isset($_SESSION['username'])) {
-    header("Location: dashboard.php");
+    header("Location: ../PENJUALAN/array.php");
     exit;
 }
 
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($username === 'admin' && $password === '123') {
         $_SESSION['username'] = $username;
         $_SESSION['role'] = 'Dosen';
-        header("Location: dashboard.php");
+        header("Location: ../PENJUALAN/array.php");
         exit;
     } else {
         $error = "Username atau password salah!";
